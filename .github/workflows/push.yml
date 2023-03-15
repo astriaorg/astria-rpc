@@ -11,6 +11,7 @@ jobs:
       - uses: bufbuild/buf-setup-action@v1
         with:
           version: "1.15.1"
+          github_token: ${{ github.token }}
       - uses: bufbuild/buf-lint-action@v1
         with:
           input: "execution-apis/proto"
