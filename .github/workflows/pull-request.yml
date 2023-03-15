@@ -15,4 +15,4 @@ jobs:
         with:
           input: "execution-apis/proto"
           # The 'main' branch of the GitHub repository that defines the module.
-          against: "https://github.com/astriaorg/astria-rpc.git#branch=main,ref=HEAD~1,subdir=execution-apis/proto"
+          against: "https://github.com/astriaorg/astria-rpc.git#branch=main,ref=HEAD,subdir=execution-apis/proto"
