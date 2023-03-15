@@ -8,7 +8,7 @@ message DoBlockRequest {
 }
 
 message DoBlockResponse {
-  bytes state_root = 1;
+  bytes breaking_change = 1;
 }
 
 service ExecutionService {
