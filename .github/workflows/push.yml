@@ -27,6 +27,7 @@ jobs:
   rust-check:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       # NOTE - this is here so that the buf cli is installed
       - uses: bufbuild/buf-setup-action@v1
         with:
