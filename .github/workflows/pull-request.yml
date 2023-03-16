@@ -18,17 +18,18 @@ jobs:
           # The 'main' branch of the GitHub repository that defines the module.
           against: "https://github.com/astriaorg/astria-rpc.git#branch=main,ref=HEAD,subdir=execution-apis/proto"
   rust-check:
-    - runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
       # NOTE - this is here so that the buf cli is installed
-    - uses: bufbuild/buf-setup-action@v1
-      with:
-        version: "1.15.1"
-        github_token: ${{ github.token }}
-    - uses: actions-rs/toolchain@v1
-      with:
-        profile: minimal
-        toolchain: stable
-        override: true
-    - uses: actions-rs/cargo@v1
-      with:
-        command: check
+      - uses: bufbuild/buf-setup-action@v1
+        with:
+          version: "1.15.1"
+          github_token: ${{ github.token }}
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - uses: actions-rs/cargo@v1
+        with:
+          command: check
