@@ -1,3 +1,3 @@
 pub mod execution {
-    include!("execution.v1.rs");
+    include!(concat!(env!("OUT_DIR"), "/src/execution.v1.rs"));
 }

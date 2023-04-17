@@ -1,28 +1,19 @@
-use std::process::Command;
+use std::process::{exit, Command};
 
 fn main() {
-    // Define the directory where your .proto files are stored
-    let proto_dir = "proto";
-
-    // Define the output directory for the generated files
-    let output_dir = ".";
-
-    // Create the output directory if it doesn't exist
-    std::fs::create_dir_all(&output_dir).unwrap();
+    println!("cargo:rerun-if-changed=proto/");
 
     // Run the `buf generate` command to generate the Rust files
+    let out_dir = std::env::var("OUT_DIR").expect("OUT_DIR env var must be set by cargo");
     let status = Command::new("buf")
         .arg("generate")
-        .arg(proto_dir)
         .arg("--output")
-        .arg(output_dir)
+        .arg(out_dir)
+        .current_dir(env!("CARGO_MANIFEST_DIR"))
         .status()
-        .expect("Failed to run 'buf generate'. Is the buf cli installed?");
+        .expect("failed to generate protobuf bindings; is `buf` installed?");
 
     if !status.success() {
-        panic!("'buf generate' exited with an error: {:?}", status.code());
+        exit(status.code().unwrap_or(-1));
     }
-
-    // Re-run the build script if any .proto files change
-    println!("cargo:rerun-if-changed={}", proto_dir);
 }
