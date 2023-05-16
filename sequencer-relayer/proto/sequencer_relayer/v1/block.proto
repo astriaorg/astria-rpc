@@ -7,9 +7,14 @@ import "proto/sequencer_relayer/v1/data.proto";
 
 // SequencerBlock
 message SequencerBlock {
+    // helper type - this should get parsed into a map from namespace to a vector of IndexedTransactions
+    message NamespacedIndexedTransactions {
+        bytes namespace = 1;
+        repeated IndexedTransaction txs = 2;
+    }
+
     bytes block_hash = 1;
     Header header = 2;
     repeated IndexedTransaction sequencer_txs = 3;
-    // TODO: this needs to map to a vec of IndexedTransaction
-    // map<bytes, IndexedTransaction> rollup_txs = 4;
+    repeated NamespacedIndexedTransactions rollup_txs = 4;
 }
