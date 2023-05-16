@@ -1,0 +1,29 @@
+[package]
+name = "sequencer-relayer"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/astriaorg/astria-rpc"
+homepage = "https://astria.org"
+# TODO
+# documentation = ""
+
+categories = ["astria-sequencer-relayer", "astria-rpc", "rpc-types"]
+keywords = [
+    "astria",
+    "grpc",
+    "rpc",
+    "blockchain",
+    "sequencer",
+    "relayer",
+    "sequencer-relayer",
+    "protobuf",
+]
+
+[dependencies]
+prost = "0.11.8"
+prost-types = "0.11.8"
+
+[build-dependencies]
+which = "4.4.0"

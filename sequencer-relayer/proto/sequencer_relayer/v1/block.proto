@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package sequencer_relayer.v1;
+
+import "tendermint/types/types.proto";
+import "proto/sequencer_relayer/v1/data.proto";
+
+// SequencerBlock
+message SequencerBlock {
+    bytes block_hash = 1;
+    Header header = 2;
+    repeated IndexedTransaction sequencer_txs = 3;
+    // TODO: this needs to map to a vec of IndexedTransaction
+    // map<bytes, IndexedTransaction> rollup_txs = 4;
+}
