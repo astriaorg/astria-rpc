@@ -4,5 +4,3 @@ managed:
 plugins:
   - plugin: buf.build/community/neoeinstein-prost
     out: .
-  - plugin: buf.build/community/neoeinstein-tonic
-    out: .
