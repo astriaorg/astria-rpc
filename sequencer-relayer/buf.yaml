@@ -1,0 +1,10 @@
+version: v1
+name: buf.build/astria/sequencer-relayer
+deps:
+  - buf.build/tendermint/tendermint
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT

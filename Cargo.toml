@@ -1,4 +1,2 @@
 [workspace]
-members = [
-    "execution-apis",
-]
+members = ["execution-apis", "sequencer-relayer"]
